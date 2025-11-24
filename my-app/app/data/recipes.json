@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "title": "Chocolate Cake",
+    "img": "https://i.ibb.co/pjfMgGjz/cake.jpg",
+    "desc": "A rich, moist chocolate cake topped with silky frosting — the perfect dessert for any occasion.",
+    "meta": { "price": "$6", "difficulty": "Medium", "prepTime": "45 min" }
+  },
+  {
+    "id": 2,
+    "title": "Hyderabadi Biryani",
+    "img": "https://i.ibb.co/Xx4174dw/biryani.jpg",
+    "desc": "A fragrant rice dish layered with flavorful spices, marinated meat, and caramelized onions.",
+    "meta": { "price": "$12", "difficulty": "Hard", "prepTime": "1 hr" }
+  },
+  {
+    "id": 3,
+    "title": "Fluffy Pancakes",
+    "img": "https://i.ibb.co/Q3KY0BSL/pancakes.jpg",
+    "desc": "Soft and airy pancakes served with maple syrup and a touch of butter.",
+    "meta": { "price": "$5", "difficulty": "Easy", "prepTime": "20 min" }
+  },
+  {
+    "id": 4,
+    "title": "Stir-Fry Noodles",
+    "img": "https://i.ibb.co/qYFvKJ9w/noodle.jpg",
+    "desc": "Wok-tossed noodles with vegetables and savory soy-based sauce.",
+    "meta": { "price": "$8", "difficulty": "Medium", "prepTime": "25 min" }
+  },
+  {
+    "id": 5,
+    "title": "Margherita Pizza",
+    "img": "https://i.ibb.co/FLSNLf7f/pizza.jpg",
+    "desc": "A classic Italian pizza topped with fresh mozzarella, basil, and tomato sauce.",
+    "meta": { "price": "$9", "difficulty": "Easy", "prepTime": "30 min" }
+  },
+  {
+    "id": 6,
+    "title": "Creamy Alfredo Pasta",
+    "img": "https://i.ibb.co/fGx1pYj9/pasta.jpg",
+    "desc": "Pasta tossed in a creamy Parmesan Alfredo sauce with garlic and herbs.",
+    "meta": { "price": "$10", "difficulty": "Medium", "prepTime": "35 min" }
+  },
+  {
+    "id": 7,
+    "title": "Hot Tomato Soup",
+    "img": "https://i.ibb.co/1tBxrYtR/soup.jpg",
+    "desc": "Warm and comforting tomato soup made with fresh tomatoes and herbs.",
+    "meta": { "price": "$4", "difficulty": "Easy", "prepTime": "20 min" }
+  }
+]
+
+
+

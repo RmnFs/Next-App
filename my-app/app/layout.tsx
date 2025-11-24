@@ -1,18 +1,8 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import './globals.css';
+import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import SessionWrapper from '@/components/SessionWrapper';
 
 export const metadata: Metadata = {
   title: 'FoodHub',
@@ -25,11 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="font-sans bg-white text-gray-800">
-        <Navbar />
-        <main className="bg-white">{children}</main>
-        <Footer />
+    <html lang="en" className="bg-white">
+      <body className="font-sans bg-white text-gray-800 overflow-x-hidden">
+        <SessionWrapper>
+          <Navbar />
+          <main className="bg-white">{children}</main>
+          <Footer />
+        </SessionWrapper>
       </body>
     </html>
   );
