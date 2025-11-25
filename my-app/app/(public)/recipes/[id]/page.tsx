@@ -36,7 +36,6 @@ export default function RecipeDetails() {
     fetchRecipe();
   }, [id]);
 
-
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen text-center">
@@ -76,11 +75,28 @@ export default function RecipeDetails() {
 
       <p className="text-orange-600 mb-8 leading-relaxed">{recipe.desc}</p>
 
+      {/* ─── Meta Info ─── */}
       <div className="flex justify-center gap-6 text-sm text-orange-600 mb-8">
         <span>💰 {recipe.meta.price}</span>
         <span>🕑 {recipe.meta.prepTime}</span>
         <span>🎯 {recipe.meta.difficulty}</span>
       </div>
+
+      {/* ─── Recipe Steps ─── */}
+      {Array.isArray(recipe.recipe) && recipe.recipe.length > 0 && (
+        <div className="text-left bg-orange-50 border border-orange-200 rounded-lg p-6 mb-10">
+          <h2 className="text-2xl font-semibold text-orange-600 mb-4 text-center">
+            Recipe Steps
+          </h2>
+          <ol className="list-decimal list-inside space-y-2 text-orange-600">
+            {recipe.recipe.map((step, index) => (
+              <li key={index} className="leading-relaxed">
+                {step}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
 
       <button
         onClick={() => router.back()}

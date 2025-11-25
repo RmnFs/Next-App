@@ -17,6 +17,9 @@ export default function AddRecipePage() {
     difficulty: 'Easy',
     image: '',
   });
+  const [recipeSteps, setRecipeSteps] = useState([
+    '', '', ''
+  ]);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -29,6 +32,16 @@ export default function AddRecipePage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) {
     setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  function handleStepChange(index: number, value: string) {
+    const updated = [...recipeSteps];
+    updated[index] = value;
+    setRecipeSteps(updated);
+  }
+
+  function addStep() {
+    setRecipeSteps([...recipeSteps, '']);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -51,8 +64,8 @@ export default function AddRecipePage() {
           difficulty: form.difficulty,
           prepTime: form.prepTime || 'N/A',
         },
-        recipe: form.shortDesc, // Add recipe field if needed
-        email: session.user.email, // Include user email
+        recipe: recipeSteps.filter((s) => s.trim() !== ''),
+        email: session.user.email,
       };
 
       await createFood(newRecipe);
@@ -85,27 +98,47 @@ export default function AddRecipePage() {
           className="border border-orange-300 w-full p-3 rounded text-orange-600 placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-600"
         />
 
-        <label className="block text-orange-600 font-medium">
-          Short Description
-        </label>
-        <input
-          name="shortDesc"
-          placeholder="Enter short description"
-          onChange={handleChange}
-          required
-          className="border border-orange-300 w-full p-3 rounded text-orange-600 placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-600"
-        />
+       
 
         <label className="block text-orange-600 font-medium">Full Description</label>
         <textarea
           name="fullDesc"
-          placeholder="Write full recipe details..."
+          placeholder="Write a short description"
           onChange={handleChange}
           required
           className="border border-orange-300 w-full p-3 rounded h-32 text-orange-600 placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-600"
         />
 
-        <div className="grid grid-cols-3 gap-4">
+        {/* ─── Recipe Steps Section ─── */}
+        <div className="pt-2">
+          <h2 className="text-lg font-semibold text-orange-600 mb-2">
+            Recipe Steps
+          </h2>
+          {recipeSteps.map((step, index) => (
+            <div key={index} className="mb-3">
+              <label className="block text-orange-600 font-medium mb-1">
+                Step {index + 1}
+              </label>
+              <input
+                type="text"
+                value={step}
+                onChange={(e) => handleStepChange(index, e.target.value)}
+                placeholder={`Describe step ${index + 1}`}
+                className="border border-orange-300 w-full p-3 rounded text-orange-600 placeholder-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-600"
+              />
+            </div>
+          ))}
+
+          <button
+            type="button"
+            onClick={addStep}
+            className="mt-2 text-orange-600 font-medium underline hover:text-orange-500 transition"
+          >
+            + Add another step
+          </button>
+        </div>
+
+        <div className="grid grid-cols-3 gap-4 pt-4">
           <div>
             <label className="block text-orange-600 font-medium">Price</label>
             <input
@@ -153,7 +186,7 @@ export default function AddRecipePage() {
           disabled={submitting}
           className="w-full bg-orange-500 text-white py-3 rounded font-semibold hover:bg-orange-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {submitting ? 'Adding Recipe...' : 'Add Recipe'}
+          {submitting ? 'Adding Recipe…' : 'Add Recipe'}
         </button>
       </form>
     </main>

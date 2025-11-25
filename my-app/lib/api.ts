@@ -8,13 +8,13 @@ export interface FoodMeta {
 
 export interface Food {
     _id?: string;
-    id?: number; // For backward compatibility
+    id?: number; 
     title: string;
     img: string;
     desc: string;
     meta: FoodMeta;
     email?: string;
-    recipe?: string;
+    recipe?: string[];
 }
 
 /**
