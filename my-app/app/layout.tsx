@@ -16,10 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-white">
-      <body className="font-sans bg-white text-gray-800 overflow-x-hidden">
+      <body className="font-sans bg-white text-gray-800 overflow-x-hidden flex flex-col min-h-screen">
         <SessionWrapper>
           <Navbar />
-          <main className="bg-white">{children}</main>
+          <main className="bg-white flex-grow pt-16">{children}</main>
           <Footer />
         </SessionWrapper>
       </body>

@@ -3,6 +3,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { FaGoogle } from "react-icons/fa";
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
@@ -23,9 +24,9 @@ export default function LoginPage() {
         </h1>
         <button
           onClick={() => signIn("google")}
-          className="w-full bg-orange-500 text-white py-3 rounded-md font-medium hover:bg-orange-400 transition"
+          className="w-full bg-orange-500 text-white py-3 rounded-md font-medium hover:bg-orange-400 transition flex items-center gap-2 justify-center"
         >
-          Continue with Google
+          <FaGoogle /> Continue with Google
         </button>
       </div>
     </section>
