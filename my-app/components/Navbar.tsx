@@ -27,8 +27,11 @@ export default function Navbar() {
                 </Link>
 
                 <div className="flex gap-6 items-center">
+                    <Link href="/" className="text-orange-600 hover:text-orange-300">Home</Link>
+                    <Link href="/about" className="text-orange-600 hover:text-orange-300">About</Link>
+                    <Link href="/how-it-works" className="text-orange-600 hover:text-orange-300">How it works</Link>
                     <Link href="/recipes" className="text-orange-600 hover:text-orange-300">Recipes</Link>
-                    
+
 
                     {session ? (
                         <div className="relative" ref={menuRef}>
