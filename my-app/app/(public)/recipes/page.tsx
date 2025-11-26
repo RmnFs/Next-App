@@ -11,7 +11,7 @@ export default function RecipesPage() {
   useEffect(() => {
     async function fetchFoods() {
       try {
-        const res = await fetch('http://localhost:8080/api/foods');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/foods`);
         const data = await res.json();
         setAllFoods(data);
         setFilteredFoods(data);
