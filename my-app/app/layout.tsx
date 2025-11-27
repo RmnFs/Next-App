@@ -1,4 +1,5 @@
 import './globals.css';
+import { Toaster } from 'react-hot-toast';
 import type { Metadata } from 'next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -21,6 +22,7 @@ export default function RootLayout({
           <Navbar />
           <main className="bg-white flex-grow pt-16">{children}</main>
           <Footer />
+          <Toaster position="top-center" />
         </SessionWrapper>
       </body>
     </html>
